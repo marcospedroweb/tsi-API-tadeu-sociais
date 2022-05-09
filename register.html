@@ -96,10 +96,10 @@
       </nav>
     </div>
   </header>
-  <div class="alert d-none my-4 show" role="alert" id="main-alert">
-    <span>Isso é uma aviso</span>
+  <div class="container-xxl alert d-none mt-4 text-center sticky-top" role="alert" id="main-alert">
+    <span class="fw-bold">Isso é uma aviso!</span>
   </div>
-  <main class="container-xxl">
+  <main class="container-xxl mt-6">
     <div class="row justify-content-center align-items-center">
       <form action="" method="POST" class="p-4 col-10 col-md-5 bg-primary rounded needs-validation" novalidate
         id="form-register">
@@ -129,8 +129,8 @@
           </div>
           <div class="mb-3">
             <label for="cpf" class="form-label fw-bold">CPF</label>
-            <input type="text" name="cpf" class="form-control" id="cpf" placeholder="xxx.xxx.xxx-xx" minlength="11"
-              required>
+            <input type="text" name="cpf" class="form-control" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" id="cpf"
+              placeholder="xxx.xxx.xxx-xx" minlength="11" required>
           </div>
           <div class="mb-3">
             <label for="tel" class="form-label fw-bold">Telefone</label>

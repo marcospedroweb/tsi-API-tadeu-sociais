@@ -14,12 +14,25 @@ if (formRegister) {
     const email = formRegister.querySelector('#email').value;
     const password = formRegister.querySelector('#password').value;
     const confirmPassword = formRegister.querySelector('#confirm-password').value;
-    if (password.toLowerCase() === password) {
-      console.log('A senha deve possuir ao menos 1 letra maiúscula')
+    const tel = formRegister.querySelector('#tel').value;
+
+    if (password.toLowerCase() === password)
       initAlertUser('danger', 'A senha deve possuir ao menos 1 letra maiúscula');
-    } else if (password !== confirmPassword) {
-      console.log('As senhas não são iguais!')
+    else if (password !== confirmPassword)
       initAlertUser('danger', 'As senhas não são iguais!');
+
+    const newUser = {
+      name: name,
+      email: email,
+      password: password,
+      tel: tel || 'Não registrado',
     }
+
+    const tableUsers = JSON.parse(localStorage.getItem('users'));
+
+    tableUsers.registeredUsers.push(newUser);
+    localStorage.setItem('users', JSON.stringify(tableUsers));
+
+    window.location.href = "/login.html?success=account-created";
   });
 }

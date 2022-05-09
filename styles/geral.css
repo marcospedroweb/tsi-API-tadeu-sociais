@@ -42,16 +42,15 @@ p {
   font-size: 1rem;
 }
 
-header {
-  margin-bottom: 4rem;
-}
 
 .alert {
+  transform: translateY(24px);
   opacity: 0;
-  transition: opacity .25s ease-out;
+  transition: all .25s ease-out;
 }
 
 .alert.show {
+  transform: translateY(0);
   opacity: 1;
 }
 

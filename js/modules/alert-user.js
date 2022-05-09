@@ -6,7 +6,7 @@ export default function initAlertUser(color, msg) {
     alertColors.forEach(element => mainAlert.classList.remove(element));
   }
 
-  if (mainAlert) {
+  if (mainAlert && color && msg) {
     const alertSpan = mainAlert.querySelector('span');
 
     removeAlertColor();
@@ -17,15 +17,15 @@ export default function initAlertUser(color, msg) {
     mainAlert.classList.toggle('d-none');
     setTimeout(() => {
       mainAlert.classList.toggle('show');
-    }, 100);
+    }, 200);
 
     setTimeout(() => {
       mainAlert.classList.toggle('show');
-    }, 1000);
+      setTimeout(() => {
+        mainAlert.classList.toggle('d-none');
+      }, 400);
+    }, 5000);
 
-    setTimeout(() => {
-      mainAlert.classList.toggle('d-none');
-    }, 300);
   }
 }
 

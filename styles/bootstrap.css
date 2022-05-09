@@ -1,3 +1,8 @@
+/* Genal */
+.alert.sticky-top {
+  top: 24px;
+}
+
 /* Paddings and Margins */
 .mt-6 {
   margin-top: 2rem;
