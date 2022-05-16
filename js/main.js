@@ -1,5 +1,8 @@
 import initAlertUser from "./modules/alert-user.js";
+import initChangeBtnLogin from "./modules/change-btn-login.js";
 import initGetWithJs from "./modules/get-with-js.js";
+import initLogin from "./modules/login.js";
+import initLogout from "./modules/logout.js";
 import initRegister from "./modules/register.js";
 import initServer from "./modules/server.js";
 import initValideForm from "./modules/valide-form.js";
@@ -9,3 +12,6 @@ initGetWithJs();
 initAlertUser();
 initValideForm();
 initRegister();
+initLogin();
+initChangeBtnLogin();
+initLogout();
