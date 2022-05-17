@@ -1,5 +1,6 @@
 import initAlertUser from "./modules/alert-user.js";
 import initChangeBtnLogin from "./modules/change-btn-login.js";
+import initCurrentLocation from "./modules/current-location.js";
 import initGetWithJs from "./modules/get-with-js.js";
 import initLogin from "./modules/login.js";
 import initLogout from "./modules/logout.js";
@@ -15,3 +16,4 @@ initRegister();
 initLogin();
 initChangeBtnLogin();
 initLogout();
+initCurrentLocation();

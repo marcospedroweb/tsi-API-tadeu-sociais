@@ -110,6 +110,108 @@
   <div class="container-xxl alert d-none mt-4 text-center" role="alert" id="main-alert">
     <span class="fw-bold">Isso é uma aviso!</span>
   </div>
+  <main class="container-xxl">
+    <div class="row justify-content-center align-items-center mt-4">
+      <div class="col-10 col-md-5 text-center py-4 rounded" id="div-create-post">
+        <div id="btns-create-posts">
+          <h2 class="h2 mb-3" id="h2-whats-post">O que gostaria de postar?</h2>
+          <btn type="submit" class="btn btn-primary post-type">Texto</btn>
+          <btn type="submit" class="btn btn-primary post-type">Mídias</btn>
+        </div>
+        <div id="div-post-text">
+          <div class="form-floating my-4">
+            <textarea class="form-control" placeholder="Deixe seu texto aqui" id="textarea-post-text" minlength="1"
+              maxlength="2000"></textarea>
+            <label for="textarea-post-text">Escreva seu texto</label>
+            <div class="mt-3 text-start">
+              <a href="#" class="link-primary add-location"><i class="bi bi-geo-alt-fill"></i> Adicionar localização
+                atual</a>
+              <div class="div-location">
+                <span>Sua localização é: <span class="span-location" data-location-found="0">Nenhum</span></span>
+              </div>
+              <a href="#" class="d-none link-danger remove-location">Remover localização</a>
+            </div>
+            <button type="button" class="btn btn-danger btn-cancel border-0 mt-4" id="cancel-textArea">Cancelar</button>
+            <button type="button" class="btn btn-primary mt-4" id="btn-textArea">Tadeuzar</button>
+          </div>
+        </div>
+        <div id="div-post-midias">
+          <div id="btns-media-type">
+            <h3 class="h3 mb-3">Qual mídia gostaria de postar?</h3>
+            <btn type="submit" class="btn btn-primary media-type">Imagem</btn>
+            <btn type="submit" class="btn btn-primary media-type">Video</btn>
+            <btn type="submit" class="btn btn-primary media-type">Audio</btn>
+            <btn type="submit" class="btn btn-primary media-type">Desenho</btn>
+          </div>
+          <div id="media-type-image">
+            <div class="mb-3">
+              <label for="form-file-image" class="form-label">Insira sua imagem</label>
+              <input class="form-control" type="file" id="form-file-image" accept=".jpg, .png">
+              <small>Sua imagem deve ser do tipo .jpg ou .png</small>
+            </div>
+            <div class="mt-3 text-start">
+              <a href="#" class="link-primary add-location"><i class="bi bi-geo-alt-fill"></i> Adicionar localização
+                atual</a>
+              <div class="div-location">
+                <span>Sua localização é: <span class="span-location" data-location-found="0">Nenhum</span></span>
+              </div>
+              <a href="#" class="d-none link-danger remove-location">Remover localização</a>
+            </div>
+            <button type="button" class="btn btn-danger btn-cancel border-0 mt-4" id="cancel-image">Cancelar</button>
+            <button type="button" class="btn btn-primary mt-4" id="btn-image">Tadeuzar</button>
+          </div>
+          <div id="media-type-video">
+            <div class="mb-3">
+              <label for="form-file-video" class="form-label">Insira seu video</label>
+              <input class="form-control" type="file" id="form-file-video" accept=".mp4">
+              <small>Seu video deve ser do tipo .mp4</small>
+            </div>
+            <div class="mt-3 text-start">
+              <a href="#" class="link-primary add-location"><i class="bi bi-geo-alt-fill"></i> Adicionar localização
+                atual</a>
+              <div class="div-location">
+                <span>Sua localização é: <span class="span-location" data-location-found="0">Nenhum</span></span>
+              </div>
+              <a href="#" class="d-none link-danger remove-location">Remover localização</a>
+            </div>
+            <button type="button" class="btn btn-danger btn-cancel border-0 mt-4" id="cancel-video">Cancelar</button>
+            <button type="button" class="btn btn-primary mt-4" id="btn-video">Tadeuzar</button>
+          </div>
+          <div id="media-type-audio">
+            <div class="mb-3">
+              <label for="form-file-audio" class="form-label">Insira seu audio</label>
+              <input class="form-control" type="file" id="form-file-video" accept=".mp4">
+              <small>Seu audio deve ser do tipo .mp3</small>
+            </div>
+            <div class="mt-3 text-start">
+              <a href="#" class="link-primary add-location"><i class="bi bi-geo-alt-fill"></i> Adicionar localização
+                atual</a>
+              <div class="div-location">
+                <span>Sua localização é: <span class="span-location" data-location-found="0">Nenhum</span></span>
+              </div>
+              <a href="#" class="d-none link-danger remove-location">Remover localização</a>
+            </div>
+            <button type="button" class="btn btn-danger btn-cancel border-0 mt-4" id="cancel-audio">Cancelar</button>
+            <button type="button" class="btn btn-primary mt-4" id="btn-audio">Tadeuzar</button>
+          </div>
+          <div id="media-type-drawing">
+            <h3 class="h3">Clique no quadro para desenhar</h3>
+            <div id="drawingBoard"></div>
+            <div class="mt-3 text-start">
+              <a href="#" class="link-primary add-location"><i class="bi bi-geo-alt-fill"></i> Adicionar localização
+                atual</a>
+              <div class="div-location">
+                <span>Sua localização é: <span class="span-location" data-location-found="0">Nenhum</span></span>
+              </div>
+              <a href="#" class="d-none link-danger remove-location">Remover localização</a>
+            </div>
+            <button type="button" class="btn btn-danger btn-cancel border-0 mt-4" id="cancel-drawing">Cancelar</button>
+            <button type="button" class="btn btn-primary mt-4" id="btn-drawing">Tadeuzar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
   <footer class="text-center bg-primary" id="footer">
     <span>Alguns direitos reservados. &copy; 2022</span>
   </footer>
