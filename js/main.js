@@ -7,6 +7,7 @@ import initLogout from "./modules/logout.js";
 import initRegister from "./modules/register.js";
 import initServer from "./modules/server.js";
 import initValideForm from "./modules/valide-form.js";
+import initDrawingBoard from "./modules/drawing-board.js";
 
 initServer();
 initGetWithJs();
@@ -17,3 +18,4 @@ initLogin();
 initChangeBtnLogin();
 initLogout();
 initCurrentLocation();
+initDrawingBoard();
