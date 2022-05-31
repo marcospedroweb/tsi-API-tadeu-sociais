@@ -4,8 +4,9 @@ export default function initCurrentLocation() {
 
 }
 
-const linksGetLocation = document.querySelectorAll('.add-location');
-const linksRemoveLocation = document.querySelectorAll('.remove-location');
+const btnLocation = document.querySelector('#search-location');
+const divIframe = document.querySelector('#iframe-location');
+const iframeLocation = document.querySelector('#iframe-location iframe');
 const coordsBrazilStates = {
   AC: [-8.77, -70.55]
   , AL: [-9.71, -35.73]
@@ -36,64 +37,47 @@ const coordsBrazilStates = {
   , TO: [-10.25, -48.25]
 }
 
-if (linksGetLocation) {
-  const divLocation = document.querySelectorAll('.div-location');
-  const spanLocation = document.querySelectorAll('.span-location');
+if (btnLocation && iframeLocation) {
 
   if ("geolocation" in navigator) {
-    linksGetLocation.forEach(elementLink => {
-      elementLink.addEventListener('click', event => {
-        event.preventDefault();
-        navigator.geolocation.getCurrentPosition(position => {
-          const userLatitude = position.coords.latitude;
-          const userLongitude = position.coords.longitude;
-          Object.keys(coordsBrazilStates).forEach((state) => {
-            const conditionLatidute = userLatitude < parseInt(coordsBrazilStates[state][0]) && userLatitude > parseFloat(`${parseInt(coordsBrazilStates[state][0])}.99`);
-            const conditionLongitude = userLongitude < parseInt(coordsBrazilStates[state][1]) && userLongitude > parseFloat(`${parseInt(coordsBrazilStates[state][1])}.99`)
 
-            if (conditionLatidute && conditionLongitude) {
-              spanLocation.forEach(span => {
-                span.textContent = state;
-                span.dataset.locationFound = "1";
-              });
+    function geoSuccess(position) {
+      const userLatitude = position.coords.latitude;
+      const userLongitude = position.coords.longitude;
+      Object.keys(coordsBrazilStates).forEach((state) => {
+        const conditionLatidute = userLatitude < parseInt(coordsBrazilStates[state][0]) && userLatitude > parseFloat(`${parseInt(coordsBrazilStates[state][0])}.99`);
+        const conditionLongitude = userLongitude < parseInt(coordsBrazilStates[state][1]) && userLongitude > parseFloat(`${parseInt(coordsBrazilStates[state][1])}.99`)
+
+        if (conditionLatidute && conditionLongitude) {
+          if (divIframe.classList.contains('d-none'))
+            divIframe.classList.toggle('d-none');
+          iframeLocation.src = `https://embed.waze.com/iframe?zoom=16&lat=${userLatitude}&lon=${userLongitude}&pin=1`;
+        }
 
 
-              if (!elementLink.classList.contains('d-none'))
-                elementLink.classList.add('d-none');
-
-              linksRemoveLocation.forEach(element => {
-                if (element.classList.contains('d-none'))
-                  element.classList.remove('d-none');
-              });
-            }
-
-          });
-        }, erro => {
-          console.log(erro);
-        });
       });
+    }
+
+    function geoError(error) {
+      initAlertUser('danger', 'Houve um erro! Não é possivel adicionar a localização atual, tente novamente.');
+      console.log(error);
+    }
+
+    const options = {
+      enableHighAccuracy: true,
+      maximumAge: 30000,
+      timeout: 30000,
+    }
+
+    btnLocation.addEventListener('click', event => {
+      navigator.geolocation.getCurrentPosition(geoSuccess, geoError, options);
     });
-  } else
+  } else {
     initAlertUser('danger', 'Ops, seu navegador não suporta geolocation');
+  }
 
-  linksRemoveLocation.forEach(element => {
-    element.addEventListener('click', event => {
-      event.preventDefault();
-
-      spanLocation.forEach(span => {
-        element.textContent = 'Nenhum'
-        span.dataset.locationFound = "0";
-      });
-
-      if (!element.classList.contains('d-none'))
-        element.classList.add('d-none');
-
-      linksGetLocation.forEach(elementLinkAdd => {
-        if (elementLinkAdd.classList.contains('d-none'))
-          elementLinkAdd.classList.remove('d-none');
-      });
-    });
-  });
 }
+
+
 
 
