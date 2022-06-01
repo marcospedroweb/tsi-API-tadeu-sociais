@@ -1,4 +1,6 @@
 export default function initServer() {
+  //Inicia o "servidor" no localStorage
+
   if (!localStorage.getItem('users')) {
     const users = {
       "registeredUsers": [],

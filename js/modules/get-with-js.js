@@ -1,6 +1,8 @@
 import initAlertUser from "./alert-user.js";
 
 export default function initGetWithJs() {
+  // Pega qualquer "variavel GET" que está na url e armazena em uma variavel
+
   let parts = window.location.search.substr(1).split("&");
 
   let $_GET = {};

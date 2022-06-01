@@ -7,3 +7,52 @@
   height: 500px;
   border: 2px solid #323232;
 }
+
+/* Animations */
+#main-btns-posts h2,
+#main-btns-posts button,
+#btns-media h3,
+#btns-media button,
+.div-media-type h4,
+.div-media-type label,
+.div-media-type input,
+.div-media-type p,
+.div-media-type small,
+.div-media-type select,
+.div-media-type button {
+  opacity: 0;
+  transition: All .25s ease-out;
+}
+
+#main-btns-posts.show h2,
+#main-btns-posts.show button,
+.button #btns-media.show h3,
+#btns-media.show button,
+.div-media-type.show h4,
+.div-media-type.show label,
+.div-media-type.show input,
+.div-media-type.show p,
+.div-media-type.show small,
+.div-media-type.show select,
+.div-media-type.show button {
+  opacity: 1;
+}
+
+#div-post-text,
+#div-post-midias,
+#div-post-midias h3,
+#div-post-midias button,
+#div-post-location {
+  transform: translateX(200px);
+  opacity: 0;
+  transition: All .25s ease-out;
+}
+
+#div-post-text.show,
+#div-post-midias.show,
+#div-post-midias.show h3,
+#div-post-midias.show button,
+#div-post-location.show {
+  opacity: 1;
+  transform: translateX(0);
+}

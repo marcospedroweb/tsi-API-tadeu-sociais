@@ -1,4 +1,5 @@
 export default function initValideForm() {
+  //Validação de inputs do boostrap
   // Example starter JavaScript for disabling form submissions if there are invalid fields
   (function () {
     'use strict'

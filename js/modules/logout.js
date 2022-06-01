@@ -2,6 +2,8 @@ import initChangeBtnLogin from "./change-btn-login.js";
 import initAlertUser from "./alert-user.js";
 
 export default function initLogout() {
+  // Verifica se o usuario está logado, se estiver, desloga o usuario
+
   const linkLogout = document.querySelector('#link-logout');
 
   if (linkLogout) {
