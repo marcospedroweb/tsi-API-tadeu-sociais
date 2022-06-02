@@ -88,12 +88,12 @@
         </div>
         <div class="d-none" id="div-post-text">
           <div class="form-floating my-4">
-            <textarea class="form-control" placeholder="Deixe seu texto aqui" id="textarea-post-text" minlength="1"
+            <textarea class="form-control" placeholder="Deixe seu texto aqui" id="post-content-text" minlength="1"
               maxlength="2000"></textarea>
             <label for="textarea-post-text">Escreva seu texto</label>
 
             <button type="button" class="btn btn-danger btn-cancel me-2 border-0 mt-4" data-cancel-post="text">Cancelar
-              <button type="button" class="btn btn-primary mt-4" id="btn-textArea">Tadeuzar</button>
+              <button type="button" class="btn-tadeuzar btn btn-primary mt-4" id="btn-post-text">Tadeuzar</button>
           </div>
         </div>
         <div class="d-none" id="div-post-midias">
@@ -108,37 +108,37 @@
             <h4 class="h4">Postando uma imagem</h4>
             <div class="mb-3">
               <label for="form-file-image" class="form-label">Insira sua imagem</label>
-              <input class="form-control" type="file" id="form-file-image" accept=".jpg, .png">
+              <input class="form-control" type="file" id="post-content-image" accept=".jpg, .png">
               <small>Sua imagem deve ser do tipo .jpg ou .png</small>
             </div>
 
             <button type="button" class="btn btn-danger btn-cancel me-2 border-0 mt-4" data-cancel-post="image">Escolher
               outra mídia</button>
-            <button type="button" class="btn-tadeuzar btn btn-primary mt-4" id="btn-image">Tadeuzar</button>
+            <button type="button" class="btn-tadeuzar btn btn-primary mt-4" id="btn-post-image">Tadeuzar</button>
           </div>
           <div class="d-none div-media-type" id="media-type-video">
             <h4 class="h4">Postando um video</h4>
             <div class="mb-3">
               <label for="form-file-video" class="form-label">Insira seu video</label>
-              <input class="form-control" type="file" id="form-file-video" accept=".mp4">
+              <input class="form-control" type="file" id="post-content-video" accept=".mp4">
               <small>Seu video deve ser do tipo .mp4</small>
             </div>
 
             <button type="button" class="btn btn-danger btn-cancel me-2 border-0 mt-4" data-cancel-post="video">Escolher
               outra mídia
-              <button type="button" class="btn-tadeuzar btn btn-primary mt-4" id="btn-video">Tadeuzar</button>
+              <button type="button" class="btn-tadeuzar btn btn-primary mt-4" id="btn-post-video">Tadeuzar</button>
           </div>
           <div class="d-none div-media-type" id="media-type-audio">
             <h4 class="h4">Postando um audio</h4>
             <div class="mb-3">
               <label for="form-file-audio" class="form-label">Insira seu audio</label>
-              <input class="form-control" type="file" id="form-file-video" accept=".mp4">
+              <input class="form-control" type="file" id="post-content-video" accept=".mp4">
               <small>Seu audio deve ser do tipo .mp3</small>
             </div>
 
             <button type="button" class="btn btn-danger btn-cancel me-2 border-0 mt-4" data-cancel-post="audio">Escolher
               outra mídia</button>
-            <button type="button" class="btn-tadeuzar btn btn-primary mt-4" id="btn-audio">Tadeuzar</button>
+            <button type="button" class="btn-tadeuzar btn btn-primary mt-4" id="btn-post-audio">Tadeuzar</button>
           </div>
           <div class="d-none div-media-type" id="media-type-drawing">
             <h4 class="h4">Postando um desenho</h4>
@@ -162,7 +162,6 @@
               </div>
             </div>
             <canvas id="drawingBoard" width="500" height="500" data-drawing="false"></canvas>
-
             <button type="button" class="btn btn-danger btn-cancel me-2 border-0 mt-4"
               data-cancel-post="drawing">Escolher outra mídia</button>
             <!-- Button modal confirm cancel -->
@@ -170,7 +169,7 @@
               data-bs-target="#modalCancelDrawing">
               Limpar desenho
             </button>
-            <button type="button" class="btn-tadeuzar btn btn-primary mt-4" id="btn-drawing">Tadeuzar</button>
+            <button type="button" class="btn-tadeuzar btn btn-primary mt-4" id="btn-post-drawing">Tadeuzar</button>
           </div>
         </div>
         <!-- Modal cancel drawing -->
@@ -205,13 +204,16 @@
           </div>
           <div class="d-none ratio ratio-1x1" id="iframe-location">
             <iframe src="https://embed.waze.com/iframe?zoom=5&lat=45.6906304&lon=-120.810983&pin=1" width="500"
-              height="500"></iframe>
+              height="500" id="post-content-location"></iframe>
           </div>
           <button type="button" class="btn btn-danger btn-cancel me-2 border-0 mt-5"
             data-cancel-post="location">Cancelar
-            <button type="button" class="btn-tadeuzar btn btn-primary mt-5" id="btn-location">Tadeuzar</button>
+            <button type="button" class="btn-tadeuzar btn btn-primary mt-5" id="btn-post-location">Tadeuzar</button>
         </div>
       </div>
+    </div>
+    <div id="post-test">
+
     </div>
   </main>
   <footer class="text-center bg-primary" id="footer">
