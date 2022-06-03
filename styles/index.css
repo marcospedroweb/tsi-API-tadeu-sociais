@@ -19,6 +19,9 @@
 .div-media-type p,
 .div-media-type small,
 .div-media-type select,
+.div-media-type img,
+.div-media-type video,
+.div-media-type audio,
 .div-media-type button {
   opacity: 0;
   transition: All .25s ease-out;
@@ -34,6 +37,9 @@
 .div-media-type.show p,
 .div-media-type.show small,
 .div-media-type.show select,
+.div-media-type img,
+.div-media-type video,
+.div-media-type audio,
 .div-media-type.show button {
   opacity: 1;
 }
@@ -55,4 +61,15 @@
 #div-post-location.show {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* Preview */
+.block-decorator {
+  position: absolute;
+  top: -15px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid #fff;
 }

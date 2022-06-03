@@ -33,26 +33,6 @@
           <img src="./logo.svg" alt="">
           <h1 class="visually-hidden">TadeuSociais</h1>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-          aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center align-items-center" id="mainNavbar">
-          <ul class="navbar-nav ">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-          </ul>
-        </div>
         <div id="div-login-register">
           <a href="./login.html" class="link-primary me-3">Entrar</a>
           <a href="./register.html" class="btn btn-primary">Criar conta</a>
@@ -91,7 +71,24 @@
             <textarea class="form-control" placeholder="Deixe seu texto aqui" id="post-content-text" minlength="1"
               maxlength="2000"></textarea>
             <label for="textarea-post-text">Escreva seu texto</label>
-
+            <div id="div-text-preview">
+              <h2 class="h2 text-center">Preview texto</h2>
+              <div class="d-flex flex-column">
+                <div class="d-flex">
+                  <i class="bi bi-person-circle me-2" style="font-size: 1.25rem;"></i>
+                  <h3 class="ms-2">Nome do usuario completo</h3>
+                </div>
+                <div class="bg-white p-2 position-relative mt-2">
+                  <div class="block-decorator"></div>
+                  <p class="text-start">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus
+                    excepturi
+                    et molestiae? Sed
+                    adipisci neque libero unde blanditiis delectus nihil quam aperiam iure corrupti non, dolor
+                    voluptatibus nostrum officiis dolore, voluptates hic magnam! Assumenda fuga eaque est iure neque
+                    sequi voluptate saepe, illo nobis quo alias repellat error dolore dicta.</p>
+                </div>
+              </div>
+            </div>
             <button type="button" class="btn btn-danger btn-cancel me-2 border-0 mt-4" data-cancel-post="text">Cancelar
               <button type="button" class="btn-tadeuzar btn btn-primary mt-4" id="btn-post-text">Tadeuzar</button>
           </div>
@@ -111,7 +108,10 @@
               <input class="form-control" type="file" id="post-content-image" accept=".jpg, .png">
               <small>Sua imagem deve ser do tipo .jpg ou .png</small>
             </div>
-
+            <div class="mb-3">
+              <h5 class="h5">Preview da imagem</h5>
+              <img src="" class="img-fluid" id="image-preview">
+            </div>
             <button type="button" class="btn btn-danger btn-cancel me-2 border-0 mt-4" data-cancel-post="image">Escolher
               outra mídia</button>
             <button type="button" class="btn-tadeuzar btn btn-primary mt-4" id="btn-post-image">Tadeuzar</button>
@@ -153,7 +153,7 @@
               <div class="col">
                 <select class="form-select form-select-lg" id="option-line-cap" aria-label="select line cap">
                   <option selected disabled>Tipo de linha</option>
-                  <option value="rounded" selected>Borda arrendoda</option>
+                  <option value="round" selected>Borda arrendoda</option>
                   <option value="square">Borda quadrada</option>
                 </select>
               </div>
@@ -203,17 +203,13 @@
               localização atual</button>
           </div>
           <div class="d-none ratio ratio-1x1" id="iframe-location">
-            <iframe src="https://embed.waze.com/iframe?zoom=5&lat=45.6906304&lon=-120.810983&pin=1" width="500"
-              height="500" id="post-content-location"></iframe>
+            <iframe src="" width="500" height="500" id="post-content-location"></iframe>
           </div>
           <button type="button" class="btn btn-danger btn-cancel me-2 border-0 mt-5"
             data-cancel-post="location">Cancelar
             <button type="button" class="btn-tadeuzar btn btn-primary mt-5" id="btn-post-location">Tadeuzar</button>
         </div>
       </div>
-    </div>
-    <div id="post-test">
-
     </div>
   </main>
   <footer class="text-center bg-primary" id="footer">

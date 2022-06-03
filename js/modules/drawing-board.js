@@ -59,8 +59,9 @@ export default function initDrawingBoard() {
 
     const coord = getMousePosition(canvas, event);
 
-    attDrawingOptions();//Configura as formatações do pincel
-
+    ctx.lineWidth = lineWidth;
+    ctx.lineCap = lineCap;
+    ctx.strokeStyle = strokeStyle;
     ctx.lineTo(coord.x, coord.y); // Começa a desenhar na posição do mouse
     ctx.stroke(); // Adiciona tinta na posição do mouse
     ctx.beginPath(); // Começa o "caminho" 
