@@ -29,7 +29,7 @@
   <header class="header-color">
     <div class="container-xxl">
       <nav class="navbar navbar-expand-lg navbar-light justify-content-between align-items-center">
-        <a class="navbar-brand pt-0" href="#">
+        <a class="navbar-brand pt-0" href="./index.html">
           <img src="./logo.svg" alt="">
           <h1 class="visually-hidden">TadeuSociais</h1>
         </a>
@@ -54,7 +54,17 @@
     <span class="fw-bold">Isso é uma aviso!</span>
   </div>
   <main class="container-xxl">
-    <section class="row justify-content-center align-items-center mt-4">
+    <section class="row justify-content-center align-items-center mt-4" id="unregistered-user">
+      <div class="col-10 col-md-6 text-center bg-primary py-4 px-2 rounded">
+        <h2 class="h2">Entre na sua conta</h2>
+        <p>Para criar posts é necessario ter uma conta</p>
+        <div class="mt-4">
+          <a href="./login.html" class="btn btn-secondary me-2">Entrar na conta</a>
+          <a href="./register.html" class="btn btn-primary">Criar conta</a>
+        </div>
+      </div>
+    </section>
+    <section class="d-none row justify-content-center align-items-center mt-4" id="create-post">
       <div class="col-10 col-md-6 text-center py-4 rounded" id="div-create-post">
         <div class="show" id="main-btns-posts">
           <h2 class="h2 mb-3" id="h2-whats-post">O que gostaria de postar?</h2>
@@ -204,7 +214,7 @@
         </section>
       </div>
     </section>
-    <section class="row flex-column justify-content-center align-items-center mt-5" id="posts">
+    <section class="d-none row flex-column justify-content-center align-items-center mt-5" id="posts">
       <article class="post col-10 col-md-6 d-flex flex-column py-4 p-2 rounded">
         <div class="d-flex align-items-center post-header">
           <i class="bi bi-person-circle me-2"></i>

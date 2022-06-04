@@ -3,7 +3,7 @@ import initAlertUser from "./alert-user.js";
 
 export default function initLogin() {
   // Ao usuario clicar no botão de login, verifica se há dados nos inputs e se há conta compativel no localStorage
-  initGetWithJs();
+  // initGetWithJs();
 
   const formLogin = document.querySelector('#form-login');
 

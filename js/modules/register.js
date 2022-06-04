@@ -19,17 +19,20 @@ export default function initRegister() {
       if (password.toLowerCase() === password) {
         initAlertUser('danger', 'A senha deve possuir ao menos 1 letra maiúscula');
         return;
+      } else if (password.length < 4) {
+        initAlertUser('danger', 'A senha deve ter mínimo 4 caracteres');
+        return;
       } else if (password !== confirmPassword) {
         initAlertUser('danger', 'As senhas não são iguais!');
         return;
       }
 
-      if (cpf.length < 11) {
+      if (!cpf.match(/\d{3}\.?\d{3}\.?\d{3}-?\d{2}/g)) {
         initAlertUser('danger', 'O CPF deve ser maior que 11 caracteres. Ex: xxx.xxx.xxx-xx');
         return;
       }
 
-      if (tel.length < 11) {
+      if (tel.length > 1 && !tel.match(/\(?\d{2}\)?\ ?\d{5}\-?\d{4}/g)) {
         initAlertUser('danger', 'O número de celular deve ser maior que 11 caracteres. Ex: (99) 99999-9999');
         return;
       }

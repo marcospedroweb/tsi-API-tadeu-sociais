@@ -12,15 +12,21 @@ import initMainBtnsPosts from "./modules/main-btns-posts.js";
 import initBtnBackToOptions from "./modules/btn-back-to-options.js";
 import initBtnMidias from "./modules/btns-midias.js";
 import initBtnsCancelPost from "./modules/btns-cancel-post.js";
-import initResetAll from "./modules/reset-all.js";
 import initPost from "./modules/post.js";
 import initSavePost from "./modules/save-post.js";
+import initReset from "./modules/reset.js";
+import initCheckAuth from "./modules/check-auth.js";
+import initCheckCpf from "./modules/check-cpf.js";
+import initCheckTel from "./modules/check-tel.js";
+import initTooltips from "./modules/tooltips.js";
 
 // Config basico e interface
 initServer();
 initGetWithJs();
 initAlertUser();
 initValideForm();
+initCheckAuth();
+initTooltips();
 // Sistema de login
 initRegister();
 initLogin();
@@ -28,8 +34,10 @@ initLogin();
 initChangeBtnLogin();
 initLogout();
 //Sistema para resetar toda a pagina de posts
-initResetAll();
+initReset();
 // Esconder e aparecer tipos posts por meio dos botões
+initCheckCpf();
+initCheckTel();
 initCurrentLocation();
 initDrawingBoard();
 initMainBtnsPosts();

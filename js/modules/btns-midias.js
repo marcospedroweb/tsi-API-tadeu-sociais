@@ -2,9 +2,10 @@ export default function initBtnMidias() {
   // Função responsavel por mostrar o modo de post que o usuario clicou
 
   const divbtnsMedias = document.querySelector('#btns-midia');
-  const btnsMedias = divbtnsMedias.querySelectorAll('.btn');
 
-  if (btnsMedias)
+  if (divbtnsMedias) {
+    const btnsMedias = divbtnsMedias.querySelectorAll('.btn');
+
     btnsMedias.forEach(btn => {
       btn.addEventListener('click', event => {
         const btnId = btn.getAttribute('id').replace('btn-media-', '');
@@ -27,4 +28,5 @@ export default function initBtnMidias() {
         }, 200);
       });
     });
+  }
 }
