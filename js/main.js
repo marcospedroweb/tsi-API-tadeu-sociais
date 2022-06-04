@@ -14,6 +14,7 @@ import initBtnMidias from "./modules/btns-midias.js";
 import initBtnsCancelPost from "./modules/btns-cancel-post.js";
 import initResetAll from "./modules/reset-all.js";
 import initPost from "./modules/post.js";
+import initSavePost from "./modules/save-post.js";
 
 // Config basico e interface
 initServer();
@@ -36,4 +37,5 @@ initBtnBackToOptions();
 initBtnMidias();
 initBtnsCancelPost();
 //Sistema de post
+initSavePost();
 initPost();

@@ -4,28 +4,16 @@ export default function initCurrentLocation() {
   // Pede a localização do usuario, se aceitar adiciona as coordenadas ao iframe, se recusar, dá um erro.
 
   const btnLocation = document.querySelector('#search-location');
-  const divIframe = document.querySelector('#iframe-location');
-  const iframeLocation = document.querySelector('#iframe-location iframe');
+  const iframe = document.querySelector('#iframe-location iframe');
 
-  if (btnLocation && iframeLocation) {
+  if (btnLocation && iframe) {
 
     if ("geolocation" in navigator) {
 
       function geoSuccess(position) {
         const userLatitude = position.coords.latitude;
         const userLongitude = position.coords.longitude;
-        Object.keys(coordsBrazilStates).forEach((state) => {
-          const conditionLatidute = userLatitude < parseInt(coordsBrazilStates[state][0]) && userLatitude > parseFloat(`${parseInt(coordsBrazilStates[state][0])}.99`);
-          const conditionLongitude = userLongitude < parseInt(coordsBrazilStates[state][1]) && userLongitude > parseFloat(`${parseInt(coordsBrazilStates[state][1])}.99`)
-
-          if (conditionLatidute && conditionLongitude) {
-            if (divIframe.classList.contains('d-none'))
-              divIframe.classList.toggle('d-none');
-            iframeLocation.src = `https://embed.waze.com/iframe?zoom=16&lat=${userLatitude}&lon=${userLongitude}&pin=1`;
-          }
-
-
-        });
+        iframe.src = `https://embed.waze.com/pt-BR/iframe?zoom=12&lat=${userLatitude}&lon=${userLongitude}&pin=1`;
       }
 
       function geoError(error) {

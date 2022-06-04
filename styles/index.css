@@ -63,13 +63,35 @@
   transform: translateX(0);
 }
 
-/* Preview */
+/*Posts css*/
+.post {
+  background-color: var(--primary-color);
+}
+
+.post+.post {
+  margin-top: 16px;
+}
+
+.post-header i {
+  font-size: 2rem;
+}
+
+.post-username {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.bg-post-text {
+  background-color: #363030;
+}
+
 .block-decorator {
   position: absolute;
-  top: -15px;
+  top: -8px;
+  left: 1px;
   width: 0;
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-bottom: 15px solid #fff;
+  border-bottom: 15px solid #363030;
 }
