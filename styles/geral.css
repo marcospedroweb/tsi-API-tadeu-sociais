@@ -1,7 +1,6 @@
 :root {
   --primary-color: #779FA1;
   --secondary-color: #E0CBA8;
-  --tertiary-color: #779FA1;
 
   --btn-color-static: #E0CBA8;
   --btn-text-static: #323232;
@@ -43,10 +42,18 @@ p {
   font-size: 1rem;
 }
 
+#div-user-logged {
+  transition: background-color .25s ease-out;
+}
+
+#div-user-logged:hover {
+  background-color: #5f8587;
+}
+
 .alert {
   transform: translateY(24px);
   opacity: 0;
-  transition: all .25s ease-out;
+  transition: all .05s ease-out;
 }
 
 .alert.show {

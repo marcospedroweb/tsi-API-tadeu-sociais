@@ -19,6 +19,7 @@ import initCheckAuth from "./modules/check-auth.js";
 import initCheckCpf from "./modules/check-cpf.js";
 import initCheckTel from "./modules/check-tel.js";
 import initTooltips from "./modules/tooltips.js";
+import initPostItems from "./modules/post-items.js";
 
 // Config basico e interface
 initServer();
@@ -46,4 +47,5 @@ initBtnMidias();
 initBtnsCancelPost();
 //Sistema de post
 initSavePost();
+initPostItems();
 initPost();

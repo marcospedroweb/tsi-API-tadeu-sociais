@@ -39,6 +39,7 @@ export default function initPost() {
           element.setAttribute('controls', 'controls');
           element.setAttribute('preload', 'none');
           element.classList.add('ratio', 'ratio-16x9');
+          source.setAttribute('type', 'video/mp4');
           element.appendChild(source);
           element.appendChild(span);
         } else {
@@ -56,6 +57,7 @@ export default function initPost() {
           source.src = audioSrc;
           element.setAttribute('controls', 'controls');
           element.setAttribute('preload', 'none');
+          source.setAttribute('type', 'audio/mp3');
           element.appendChild(source);
           element.appendChild(span)
         } else {
@@ -100,9 +102,8 @@ export default function initPost() {
         // Para cada botão de postar, verifica se há conteudo e posta
         const postType = btnTadeuzar.getAttribute('id').replace('btn-post-', '');
         const element = createNodeElement(postType);
-        console.log(element);
-        // if (element)
-        //   initSavePost(postType, element);
+        if (element)
+          initSavePost(postType, element);
       });
     });
 
@@ -112,7 +113,13 @@ export default function initPost() {
       const file = eventChange.target.files[0];
       const reader = new FileReader();
       reader.onload = (event) => {
-        inputImageSrc.value = event.target.result;
+        if (file.size < 500000)
+          inputImageSrc.value = event.target.result;
+        else {
+          inputImage.value = '';
+          inputImageSrc.value = '';
+          initAlertUser('danger', 'O tamanho do arquivo deve ter no maximo 5KB');
+        }
       };
       reader.readAsDataURL(file);
     });
@@ -122,7 +129,13 @@ export default function initPost() {
       const inputVideoSrc = document.querySelector('#video-src');
       const file = event.target.files[0];
       const blobURL = URL.createObjectURL(file);
-      inputVideoSrc.value = blobURL;
+      if (file.size < 500000)
+        inputVideoSrc.value = blobURL;
+      else {
+        inputVideo.value = '';
+        inputVideoSrc.value = '';
+        initAlertUser('danger', 'O tamanho do arquivo deve ter no maximo 5KB');
+      }
     });
 
     //Input de audio
@@ -130,7 +143,13 @@ export default function initPost() {
       const inputAudioSrc = document.querySelector('#audio-src');
       const file = event.target.files[0];
       const blobURL = URL.createObjectURL(file);
-      inputAudioSrc.value = blobURL;
+      if (file.size < 500000)
+        inputAudioSrc.value = blobURL;
+      else {
+        inputAudio.value = '';
+        inputAudioSrc.value = '';
+        initAlertUser('danger', 'O tamanho do arquivo deve ter no maximo 5KB');
+      }
     });
 
   }

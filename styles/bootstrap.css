@@ -64,6 +64,10 @@ a.link-primary:focus {
 }
 
 /* Buttons */
+.btn:focus {
+  box-shadow: 0 0 0 0.25rem rgba(44, 75, 77, .5);
+}
+
 .btn-check:active+.btn-primary:focus,
 .btn-check:checked+.btn-primary:focus,
 .btn-primary.active:focus,

@@ -10,7 +10,6 @@ export default function initGetWithJs() {
     let temp = parts[i].split("=");
     $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
   }
-  console.log($_GET['success'] == 'account-created')
   if ($_GET['success'])
     if ($_GET['success'] == 'account-created')
       initAlertUser('success', 'Conta criada com sucesso!');
