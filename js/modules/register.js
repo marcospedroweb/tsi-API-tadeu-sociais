@@ -44,6 +44,7 @@ export default function initRegister() {
       }
 
       tableUsers.forEach(user => {
+        //Verifica se o cpf está repetido
         if (user.cpf == cpf)
           cpfRepeated = true;
       });
