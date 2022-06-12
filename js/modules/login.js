@@ -6,24 +6,27 @@ export default function initLogin() {
   // initGetWithJs();
 
   const formLogin = document.querySelector('#form-login');
+  const userLogged = JSON.parse(sessionStorage.getItem('userLogged'));
+
+  if (userLogged && window.location.href.indexOf('login.html') && formLogin)
+    window.location.href = "/index.html";
 
   if (formLogin) {
     formLogin.addEventListener('submit', event => {
       event.preventDefault();
       const tableUsers = JSON.parse(window.localStorage.getItem('users'));
-      const registeredUsers = tableUsers.registeredUsers;
       const email = formLogin.querySelector('#email').value;
       const password = formLogin.querySelector('#password').value;
       let matchedUser;
 
-      registeredUsers.forEach(element => {
-        if (element.email === email && element.password === password)
-          matchedUser = element.id.toString() || true;
+      tableUsers.forEach(user => {
+        if (user.email === email && user.password === password)
+          matchedUser = user;
       });
 
       if (matchedUser) {
-        sessionStorage.setItem('userLogged', JSON.stringify(registeredUsers));
-        window.location.href = "/index.html?success=user-logged";
+        sessionStorage.setItem('userLogged', JSON.stringify(matchedUser));
+        window.location.href = "/index.html";
       } else {
         initAlertUser('danger', 'Senha e/ou email não correspondem.');
         formLogin.querySelector('#password').value = '';

@@ -1,22 +1,18 @@
 export default function initServer() {
   //Inicia o "servidor" no localStorage
 
-  if (!localStorage.getItem('users')) {
-    const users = {
-      "registeredUsers": [],
-    };
+  if (!localStorage.getItem('users') && !localStorage.getItem('posts')) {
+    const users = [];
+    const posts = [];
     localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('posts', JSON.stringify(posts));
   } else {
-    const tableUsers = JSON.parse(window.localStorage.getItem('users'));
-    const registeredUsers = tableUsers.registeredUsers;
-    if (registeredUsers.length > 0) {
-      registeredUsers.forEach((element, index) => {
-        element.id = index;
+    const users = JSON.parse(window.localStorage.getItem('users'));
+    if (users.length > 0) {
+      users.forEach((user, index) => {
+        user.id = index;
       });
 
-      const users = {
-        "registeredUsers": registeredUsers,
-      }
       localStorage.setItem('users', JSON.stringify(users));
     }
   }
