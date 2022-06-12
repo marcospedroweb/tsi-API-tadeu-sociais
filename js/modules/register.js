@@ -22,7 +22,6 @@ export default function initRegister() {
       const tel = formRegister.querySelector('#tel').value;
       let emailRepeated = false;
       let cpfRepeated = false;
-      const userLogged = JSON.parse(sessionStorage.getItem('userLogged'));
 
       tableUsers.forEach(user => {
         if (user.email == email)
@@ -46,7 +45,7 @@ export default function initRegister() {
 
       tableUsers.forEach(user => {
         if (user.cpf == cpf)
-          emailRepeated = true;
+          cpfRepeated = true;
       });
       if (cpfRepeated) {
         initAlertUser('danger', 'Este CPF já esta sendo utilizando, tente outro.');
