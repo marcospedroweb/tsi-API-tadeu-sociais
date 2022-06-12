@@ -1,8 +1,11 @@
-# tsi-API-tadeu-sociais
-(EM DESENVOLVIMENTO)[Trabalho para faculdade] Site de rede social ficticia que é possivel fazer login, criar conta, posts e ver outros posts.
+## TadeuSociais
+[Trabalho para faculdade] Site de rede social ficticia que é possivel fazer login, criar conta, posts e ver posts de outros usuarios.
 
 # Detalhes 
-O site inteiro é feito apenas com ferramentas Front-end, ou seja, HTML, CSS e JS.
+<ul>
+  <li>O site foi desenvolvido utilizando: HTML, CSS, Javascript, Boostrap</li>
+  <li>Projeto desenvolvido por Marcos Pedro</li>
+  <li>Tempo de desenvolvimento: 07/05/20202 até 11/06/2022</li>
+</ul>
 
-# Frameworks utilizados
-- Bootstrap
+
