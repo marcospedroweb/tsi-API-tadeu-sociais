@@ -21,6 +21,7 @@ export default function initRegister() {
       const cpf = formRegister.querySelector('#cpf').value;
       const tel = formRegister.querySelector('#tel').value;
       let emailRepeated = false;
+      let cpfRepeated = false;
       const userLogged = JSON.parse(sessionStorage.getItem('userLogged'));
 
       tableUsers.forEach(user => {
@@ -43,6 +44,14 @@ export default function initRegister() {
         return;
       }
 
+      tableUsers.forEach(user => {
+        if (user.cpf == cpf)
+          emailRepeated = true;
+      });
+      if (cpfRepeated) {
+        initAlertUser('danger', 'Este CPF já esta sendo utilizando, tente outro.');
+        return;
+      }
       if (!cpf.match(/\d{3}\.?\d{3}\.?\d{3}-?\d{2}/g)) {
         initAlertUser('danger', 'O CPF deve ser maior que 11 caracteres. Ex: xxx.xxx.xxx-xx');
         return;
