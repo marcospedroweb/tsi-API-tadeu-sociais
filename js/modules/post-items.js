@@ -1,3 +1,4 @@
+import initDeletePost from "./delete-post.js";
 import initFormatPostSchedules from "./format-post-schedules.js";
 
 export default function initPostItems() {
@@ -12,16 +13,24 @@ export default function initPostItems() {
     const icon = document.createElement('i');
     const h3 = document.createElement('h3');
     const span = document.createElement('h3');
-    divUsername.classList.add('d-flex', 'align-items-center', 'post-header');
+    //Opções do post
+    const buttonDelete = document.createElement('button');
+    divUsername.classList.add('d-flex', 'align-items-center', 'post-header', 'position-relative');
     icon.classList.add('bi', 'bi-person-circle', 'me-2');
     h3.classList.add('post-username', 'mb-0', 'me-2', 'h3');
-    h3.textContent = post.user;
+    h3.textContent = post.username;
     span.classList.add('post-time');
     span.textContent = post.date;
     span.dataset.formated = false;
+    //Dropdown
+    buttonDelete.classList.add('button-delete-post', 'btn', 'btn-secondary', 'position-absolute', 'top-50', 'end-0', 'translate-middle-y')
+    buttonDelete.setAttribute('id', `button-delete-${post.id}`)
+    buttonDelete.setAttribute('type', 'button');
+    buttonDelete.textContent = 'Apagar postagem';
     divUsername.appendChild(icon);
     divUsername.appendChild(h3);
     divUsername.appendChild(span);
+    divUsername.appendChild(buttonDelete);
 
     //Elemento com o conteudo da postagem
     const divContent = document.createElement('div');
@@ -108,6 +117,7 @@ export default function initPostItems() {
       divPosts.appendChild(article);
     });
 
+    initDeletePost();
     initFormatPostSchedules();
   }
 }

@@ -9,7 +9,7 @@ export default function initLogout() {
   if (linkLogout) {
     linkLogout.addEventListener('click', event => {
       event.preventDefault();
-      const userLogged = JSON.parse(sessionStorage.getItem('userLogged'))[0];
+      const userLogged = JSON.parse(sessionStorage.getItem('userLogged'));
 
       if (userLogged) {
         sessionStorage.removeItem('userLogged');

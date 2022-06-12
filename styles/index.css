@@ -141,6 +141,24 @@
   margin: 0;
 }
 
+.dropdown.position-absolute {
+  z-index: 1050;
+}
+
+.dropdown-delete::after {
+  display: none;
+  content: "";
+  border: 0;
+}
+
+.icon-delete-post {
+  color: #000;
+}
+
+.button-delete-post {
+  cursor: pointer;
+}
+
 .bg-post-text {
   background-color: #363030;
 }

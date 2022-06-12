@@ -19,6 +19,7 @@ import initCharCount from "./modules/char-count.js";
 import initBtnCancelContent from "./modules/btn-cancel-content.js";
 import initBtnTadeuzar from "./modules/btn-tadeuzar.js";
 import initBtnAddMedia from "./modules/btn-add-media.js";
+import initDeletePost from "./modules/delete-post.js";
 
 // Config basico e interface
 initServer();
@@ -46,3 +47,4 @@ initCharCount();
 initBtnCancelContent();
 initBtnAddMedia();
 initBtnTadeuzar();
+initDeletePost();

@@ -14,8 +14,9 @@ export default function initBtnTadeuzar() {
       const inputDraw = document.querySelector('#data-draw');
       const inputLocation = document.querySelector('#data-location');
       const post = {
-        id: tablePosts.length + 1,
-        user: userLogged.name,
+        id: tablePosts.length,
+        userId: userLogged.id,
+        username: userLogged.name,
         date: new Date().getTime()
       }
 
