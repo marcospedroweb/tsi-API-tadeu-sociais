@@ -1,0 +1,157 @@
+#create-post {
+  background-color: var(--background-post-dark);
+}
+
+/* Text area*/
+#post-content-text {
+  min-height: 150px;
+  max-height: 200px;
+}
+
+#char-counter {
+  background-color: #363636;
+  color: #fff;
+  padding: 4px;
+  font-weight: 500;
+  border-radius: 8px;
+  font-size: .9rem;
+  min-width: 78px;
+}
+
+/* Input file*/
+#midia-file {
+  display: none;
+}
+
+.post-content {
+  opacity: 0;
+  margin-top: 8px;
+  color: #fff;
+  padding: 8px;
+  background-color: #363636;
+  border-radius: 8px;
+  transition: opacity .25s ease-out;
+}
+
+.post-content.show {
+  opacity: 1;
+}
+
+.post-content+.post-content {
+  margin-left: 4px;
+}
+
+.post-content .bi-check-circle-fill {
+  color: #0e8728;
+}
+
+.post-content .bi-x {
+  margin-left: 4px;
+  cursor: pointer;
+  transition: color .25s ease-in;
+}
+
+.post-content .bi-x:hover {
+  color: #dc3545;
+}
+
+#btn-add-media,
+#btn-add-draw,
+#btn-add-location {
+  display: flex;
+  background-color: #323232;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 8px;
+  transition: all .25s ease-in;
+}
+
+#btn-add-media span,
+#btn-add-draw span,
+#btn-add-location span {
+  display: block;
+  width: 0;
+  max-height: 20px;
+  text-overflow: clip;
+  overflow: hidden;
+  transition: all .25s ease-out;
+}
+
+#btn-add-media:hover,
+#btn-add-draw:hover,
+#btn-add-location:hover {
+  background-color: #424242;
+  color: #f0f0f0;
+}
+
+#btn-add-media:hover span,
+#btn-add-draw:hover span,
+#btn-add-location:hover span {
+  margin-left: 8px;
+  width: 100%;
+}
+
+#btn-add-media+span {
+  cursor: help;
+  margin: 8px 0 0 4px;
+  background-color: #323232;
+  color: #fff;
+  padding: 0 8px;
+  border-radius: 50%;
+}
+
+#drawingBoard {
+  margin: 0 auto;
+  background-color: #fff;
+  max-width: 600px;
+  max-height: 600px;
+  width: auto;
+  height: auto;
+  border: 2px solid #323232;
+}
+
+@media screen and (max-width:540px) {
+  #drawingBoard {
+    max-width: 300px;
+    max-height: 300px;
+  }
+}
+
+/*Posts css*/
+.post {
+  background-color: var(--primary-color);
+}
+
+.post+.post {
+  margin-top: 16px;
+}
+
+.post-header i {
+  font-size: 2rem;
+}
+
+.post-username {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.post-time {
+  font-size: .9rem;
+  margin: 0;
+}
+
+.bg-post-text {
+  background-color: #363030;
+}
+
+.block-decorator {
+  position: absolute;
+  top: -10px;
+  left: 1px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid #363030;
+}
