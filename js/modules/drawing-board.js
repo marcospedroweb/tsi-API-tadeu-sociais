@@ -6,7 +6,6 @@ export default function initDrawingBoard() {
   const canvas = document.querySelector('#drawingBoard');
 
   if (canvas) {
-    const modalDrawing = document.querySelector('#drawing-modal .modal-body');
     const btnDraw = document.querySelector('#btn-add-draw');
     const ctx = canvas.getContext('2d');
     const canvasDataset = canvas.dataset;
