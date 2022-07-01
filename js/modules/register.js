@@ -23,6 +23,10 @@ export default function initRegister() {
       let emailRepeated = false;
       let cpfRepeated = false;
 
+      if (email.length == 0 || email.indexOf('@') == -1) {
+        initAlertUser('danger', 'Insira um email valido. Ex: exemploEmail@email.com');
+        return;
+      }
       tableUsers.forEach(user => {
         if (user.email == email)
           emailRepeated = true;

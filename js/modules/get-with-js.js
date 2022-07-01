@@ -11,7 +11,9 @@ export default function initGetWithJs() {
     $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
   }
   if ($_GET['success'])
-    if ($_GET['success'] == 'account-created')
+    if ($_GET['success'] == 'account-created') {
       initAlertUser('success', 'Conta criada com sucesso!');
+      location.href = location.href.replace('?success=account-created', '');
+    }
 
 }

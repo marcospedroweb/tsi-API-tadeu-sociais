@@ -20,7 +20,7 @@ export default function initBtnTadeuzar() {
         date: new Date().getTime()
       }
 
-      if (textareaContent.value.length == 0 && inputMedia.length == 0 && inputDraw.length == 0 && inputLocation.length == 0) {
+      if (textareaContent.value.trim().length == 0 && inputMedia.value.length == 0 && inputDraw.value.length == 0 && inputLocation.value.length == 0) {
         initAlertUser('danger', 'Para realizar o post é necessário adicionar algum conteudo');
         return;
       }

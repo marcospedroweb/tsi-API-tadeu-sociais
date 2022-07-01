@@ -5,6 +5,8 @@ export default function initPostItems() {
   // Cria os posts de acordo com o que está salvo no localStorage
 
   function createPost(post) {
+    //Usuario logado 
+    const userLogged = JSON.parse(sessionStorage.getItem('userLogged'));
     //Elemento pai
     const article = document.createElement('article');
     article.classList.add('post', 'col-10', 'col-md-6', 'd-flex', 'flex-column', 'py-4', 'p-2', 'rounded');
@@ -23,14 +25,17 @@ export default function initPostItems() {
     span.textContent = post.date;
     span.dataset.formated = false;
     //Dropdown
-    buttonDelete.classList.add('button-delete-post', 'btn', 'btn-secondary', 'position-absolute', 'top-50', 'end-0', 'translate-middle-y')
-    buttonDelete.setAttribute('id', `button-delete-${post.id}`)
-    buttonDelete.setAttribute('type', 'button');
-    buttonDelete.textContent = 'Apagar postagem';
+    if (userLogged.id == post.userId) {
+      buttonDelete.classList.add('button-delete-post', 'btn', 'btn-secondary', 'position-absolute', 'top-50', 'end-0', 'translate-middle-y');
+      buttonDelete.setAttribute('id', `button-delete-${post.id}`);
+      buttonDelete.setAttribute('type', 'button');
+      buttonDelete.textContent = 'Apagar postagem';
+    }
     divUsername.appendChild(icon);
     divUsername.appendChild(h3);
     divUsername.appendChild(span);
-    divUsername.appendChild(buttonDelete);
+    if (userLogged.id == post.userId)
+      divUsername.appendChild(buttonDelete);
 
     //Elemento com o conteudo da postagem
     const divContent = document.createElement('div');

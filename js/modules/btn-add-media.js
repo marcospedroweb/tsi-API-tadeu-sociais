@@ -13,7 +13,7 @@ export default function initBtnAddMedia() {
       const fileType = `.${file.type.replace('video/', '').replace('image/', '').replace('mpeg/', '')}`
       const reader = new FileReader();
       reader.onload = function (event) {
-        if (file.size <= 500000 && ['.mpeg', '.mp4', '.png', '.jpg'].includes(fileType)) {
+        if (file.size <= 500000 && ['.mpeg', '.mp4', '.png', '.jpg', '.jpeg'].includes(fileType)) {
           inputMedia.value = event.target.result;
 
           spanMediaType.textContent = fileType;
