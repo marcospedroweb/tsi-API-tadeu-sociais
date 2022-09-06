@@ -1,0 +1,32 @@
+{
+  "name": "tsi-api-tadeu-sociais",
+  "version": "1.0.0",
+  "description": "[Trabalho para faculdade] Site de rede social ficticia que é possivel fazer login, criar conta, posts e ver posts de outros usuarios.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcospedroweb/tsi-API-tadeu-sociais.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcospedroweb/tsi-API-tadeu-sociais/issues"
+  },
+  "homepage": "https://github.com/marcospedroweb/tsi-API-tadeu-sociais#readme",
+  "devDependencies": {
+    "@babel/core": "^7.19.0",
+    "@babel/plugin-transform-runtime": "^7.18.10",
+    "@babel/preset-env": "^7.19.0",
+    "babel-loader": "^8.2.5",
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
