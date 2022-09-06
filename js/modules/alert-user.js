@@ -1,31 +1,31 @@
-export default function initAlertUser(color, msg) {
-  const alertColors = ['alert-danger', 'alert-success', 'alert-warning'];
-  const mainAlert = document.querySelector('#main-alert');
-
-  function removeAlertColor() {
-    alertColors.forEach(element => mainAlert.classList.remove(element));
+class AlertUser {
+  constructor(alert, span) {
+    this.alert = document.querySelector(alert);
+    this.alertSpan = document.querySelector(span);
+    this.alertColors = ['alert-danger', 'alert-success', 'alert-warning'];
   }
 
-  if (mainAlert && color && msg) {
-    const alertSpan = mainAlert.querySelector('span');
+  removeAlertColor() {
+    this.alertColors.forEach((element) => this.alert.classList.remove(element));
+  }
 
-    removeAlertColor();
-    mainAlert.classList.add(`alert-${color}`);
-
-    alertSpan.textContent = msg;
-
-    mainAlert.classList.toggle('d-none');
-    setTimeout(() => {
-      mainAlert.classList.toggle('show');
-    }, 200);
-
-    setTimeout(() => {
-      mainAlert.classList.toggle('show');
+  init(color, msg) {
+    if (this.alert && color && msg) {
+      this.removeAlertColor();
+      this.alert.classList.add(`alert-${color}`);
+      this.alertSpan.textContent = msg;
+      this.alert.classList.toggle('d-none');
       setTimeout(() => {
-        mainAlert.classList.toggle('d-none');
-      }, 400);
-    }, 5000);
-
+        this.alert.classList.toggle('show');
+      }, 200);
+      setTimeout(() => {
+        this.alert.classList.toggle('show');
+        setTimeout(() => {
+          this.alert.classList.toggle('d-none');
+        }, 400);
+      }, 5000);
+    }
   }
 }
-
+const alertUser = new AlertUser('#main-alert', 'span');
+export default alertUser;

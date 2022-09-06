@@ -1,8 +1,13 @@
-export default function initTooltips() {
-  //Tooltips do bootstrap
-  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-  let tooltipList;
-  if (tooltipTriggerList[0])
-    tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
-}
+export default class TooltipsBootstrap {
+  constructor(list) {
+    this.tooltipTriggerList = document.querySelectorAll(list);
+  }
 
+  init() {
+    if (this.tooltipTriggerList[0])
+      [...this.tooltipTriggerList].map(
+        // eslint-disable-next-line no-undef
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl),
+      );
+  }
+}

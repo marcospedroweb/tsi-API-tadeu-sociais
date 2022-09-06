@@ -1,36 +1,40 @@
-import initGetWithJs from "./get-with-js.js";
-import initAlertUser from "./alert-user.js";
+/* eslint-disable import/extensions */
+import alertUser from './alert-user.js';
 
-export default function initLogin() {
-  // Ao usuario clicar no botão de login, verifica se há dados nos inputs e se há conta compativel no localStorage
-  // initGetWithJs();
+export default class Login {
+  constructor(form, table) {
+    this.form = document.querySelector(form);
+    this.table = JSON.parse(localStorage.getItem(table));
+    this.userLogged = JSON.parse(sessionStorage.getItem('userLogged'));
+  }
 
-  const formLogin = document.querySelector('#form-login');
-  const userLogged = JSON.parse(sessionStorage.getItem('userLogged'));
+  init() {
+    if (
+      this.userLogged &&
+      this.form &&
+      window.location.href.indexOf('login.html')
+    )
+      window.location.href = `${window.location.origin}/login.html`;
 
-  if (userLogged && window.location.href.indexOf('login.html') && formLogin)
-    window.location.href = window.location.href.replace('login.html', 'index.html');
+    if (this.form)
+      this.form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const email = this.form.querySelector('#email').value;
+        const password = this.form.querySelector('#password').value;
+        let matchedUser;
 
-  if (formLogin) {
-    formLogin.addEventListener('submit', event => {
-      event.preventDefault();
-      const tableUsers = JSON.parse(window.localStorage.getItem('users'));
-      const email = formLogin.querySelector('#email').value;
-      const password = formLogin.querySelector('#password').value;
-      let matchedUser;
+        this.table.forEach((user) => {
+          if (user.email === email && user.password === password)
+            matchedUser = user;
+        });
 
-      tableUsers.forEach(user => {
-        if (user.email === email && user.password === password)
-          matchedUser = user;
+        if (matchedUser) {
+          sessionStorage.setItem('userLogged', JSON.stringify(matchedUser));
+          window.location.href = `${window.location.origin}/index.html?success=account-created`;
+        } else {
+          alertUser.init('danger', 'Senha e/ou email não correspondem.');
+          this.form.querySelector('#password').value = '';
+        }
       });
-
-      if (matchedUser) {
-        sessionStorage.setItem('userLogged', JSON.stringify(matchedUser));
-        window.location.href = window.location.href.replace('register.html', 'index.html');
-      } else {
-        initAlertUser('danger', 'Senha e/ou email não correspondem.');
-        formLogin.querySelector('#password').value = '';
-      }
-    });
   }
 }

@@ -1,85 +1,109 @@
-import initAlertUser from "./alert-user.js";
+/* eslint-disable no-else-return */
+// eslint-disable-next-line import/extensions
+import alertUser from './alert-user.js';
 
-export default function initRegister() {
-  // Ao usuario clicar no botão de criar conta, verifica se há dados nos inputs e se não nenhuma conta já registrada com o mesmo email
-
-  const formRegister = document.querySelector('#form-register');
-  const userLogged = JSON.parse(sessionStorage.getItem('userLogged'));
-
-  if (userLogged && window.location.href.indexOf('register.html') && formRegister)
-    window.location.href = window.location.href.replace('register.html', 'index.html');
-
-  if (formRegister) {
-    formRegister.addEventListener('submit', event => {
-      event.preventDefault();
-
-      const tableUsers = JSON.parse(localStorage.getItem('users'));
-      const name = formRegister.querySelector('#name').value;
-      const email = formRegister.querySelector('#email').value;
-      const password = formRegister.querySelector('#password').value;
-      const confirmPassword = formRegister.querySelector('#confirm-password').value;
-      const cpf = formRegister.querySelector('#cpf').value;
-      const tel = formRegister.querySelector('#tel').value;
-      let emailRepeated = false;
-      let cpfRepeated = false;
-
-      if (email.length == 0 || email.indexOf('@') == -1) {
-        initAlertUser('danger', 'Insira um email valido. Ex: exemploEmail@email.com');
-        return;
-      }
-      tableUsers.forEach(user => {
-        if (user.email == email)
-          emailRepeated = true;
-      });
-      if (emailRepeated) {
-        initAlertUser('danger', 'Este email está indisponível, utilize outro');
-        return;
-      }
-
-      if (password.toLowerCase() === password) {
-        initAlertUser('danger', 'A senha deve possuir ao menos 1 letra maiúscula');
-        return;
-      } else if (password.length < 4) {
-        initAlertUser('danger', 'A senha deve ter mínimo 4 caracteres');
-        return;
-      } else if (password !== confirmPassword) {
-        initAlertUser('danger', 'As senhas não são iguais!');
-        return;
-      }
-
-      tableUsers.forEach(user => {
-        //Verifica se o cpf está repetido
-        if (user.cpf == cpf)
-          cpfRepeated = true;
-      });
-      if (cpfRepeated) {
-        initAlertUser('danger', 'Este CPF já esta sendo utilizando, tente outro.');
-        return;
-      }
-      if (!cpf.match(/\d{3}\.?\d{3}\.?\d{3}-?\d{2}/g)) {
-        initAlertUser('danger', 'O CPF deve ser maior que 11 caracteres. Ex: xxx.xxx.xxx-xx');
-        return;
-      }
-
-      if (tel.length > 1 && !tel.match(/\(?\d{2}\)?\ ?\d{5}\-?\d{4}/g)) {
-        initAlertUser('danger', 'O número de celular deve ser maior que 11 caracteres. Ex: (99) 99999-9999');
-        return;
-      }
-
-      const newUser = {
-        id: 0,
-        name: name,
-        email: email,
-        password: password,
-        cpf: cpf,
-        tel: tel || 'Não registrado',
-      }
-
-      tableUsers.push(newUser);
-      localStorage.setItem('users', JSON.stringify(tableUsers));
-
-      window.location.href = window.location.href.replace('register.html', 'login.html?success=account-created');
-    });
+export default class Register {
+  constructor(form, table) {
+    this.form = document.querySelector(form);
+    this.table = JSON.parse(localStorage.getItem(table));
+    this.userLogged = JSON.parse(sessionStorage.getItem('userLogged'));
   }
 
+  init() {
+    if (
+      this.userLogged &&
+      this.form &&
+      window.location.href.indexOf('register.html')
+    )
+      window.location.href = `${window.location.origin}/register.html`;
+
+    if (this.form) {
+      this.form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        let emailRepeated;
+        let cpfRepeated;
+
+        const name = this.form.querySelector('#name').value;
+        const email = this.form.querySelector('#email').value;
+        const password = this.form.querySelector('#password').value;
+        const confirmPassword =
+          this.form.querySelector('#confirm-password').value;
+        const cpf = this.form.querySelector('#cpf').value;
+        const tel = this.form.querySelector('#tel').value;
+
+        // Validando email e cpf repetidos
+        this.table.forEach((user) => {
+          if (user.email === email) emailRepeated = true;
+          if (user.cpf === cpf) cpfRepeated = true;
+        });
+
+        // Validando email
+        if (email.length === 0 || email.indexOf('@') === -1) {
+          alertUser(
+            'danger',
+            'Insira um email valido. Ex: exemploEmail@email.com',
+          );
+          return;
+        } else if (emailRepeated) {
+          alertUser('danger', 'Este email está indisponível, utilize outro');
+          return;
+        }
+
+        if (password.toLowerCase() === password) {
+          alertUser(
+            'danger',
+            'A senha deve possuir ao menos 1 letra maiúscula',
+          );
+          return;
+        } else if (password.length < 4) {
+          alertUser('danger', 'A senha deve ter mínimo 4 caracteres');
+          return;
+        } else if (password !== confirmPassword) {
+          alertUser('danger', 'As senhas não são iguais!');
+          return;
+        }
+
+        // Validando cpf
+        if (cpfRepeated) {
+          alertUser(
+            'danger',
+            'Este CPF já esta sendo utilizando, tente outro.',
+          );
+          return;
+        } else if (!cpf.match(/\d{3}[.-]?\d{3}[.-]?\d{3}-?\d{2}/g)) {
+          alertUser(
+            'danger',
+            'O CPF deve ser maior que 11 caracteres. Ex: xxx.xxx.xxx-xx',
+          );
+          return;
+        }
+
+        if (tel.length > 1 && !tel.match(/\(?\d{2}\)? ?\d{5}-?\d{4}/g)) {
+          alertUser(
+            'danger',
+            'O número de celular deve ser maior que 11 caracteres. Ex: (99) 99999-9999',
+          );
+          return;
+        }
+
+        const newUser = {
+          id: 0,
+          name,
+          email,
+          password,
+          cpf,
+          tel: tel || 'Não registrado',
+        };
+
+        this.table.push(newUser);
+        localStorage.setItem('users', JSON.stringify(this.table));
+
+        window.location.href = window.location.href.replace(
+          'register.html',
+          'login.html?success=account-created',
+        );
+      });
+    }
+  }
 }
