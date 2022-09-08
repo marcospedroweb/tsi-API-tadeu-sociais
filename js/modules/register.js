@@ -1,5 +1,3 @@
-/* eslint-disable no-else-return */
-// eslint-disable-next-line import/extensions
 import alertUser from './alert-user.js';
 
 export default class Register {
@@ -39,7 +37,11 @@ export default class Register {
         });
 
         // Validando email
-        if (email.length === 0 || email.indexOf('@') === -1) {
+        if (
+          /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i.test(
+            email,
+          )
+        ) {
           alertUser(
             'danger',
             'Insira um email valido. Ex: exemploEmail@email.com',
@@ -71,7 +73,7 @@ export default class Register {
             'Este CPF já esta sendo utilizando, tente outro.',
           );
           return;
-        } else if (!cpf.match(/\d{3}[.-]?\d{3}[.-]?\d{3}-?\d{2}/g)) {
+        } else if (!/\d{3}[.-]?\d{3}[.-]?\d{3}-?\d{2}/g.test(cpf)) {
           alertUser(
             'danger',
             'O CPF deve ser maior que 11 caracteres. Ex: xxx.xxx.xxx-xx',
@@ -79,7 +81,7 @@ export default class Register {
           return;
         }
 
-        if (tel.length > 1 && !tel.match(/\(?\d{2}\)? ?\d{5}-?\d{4}/g)) {
+        if (tel.length > 1 && /\(?\d{2}\)? ?\d{5}-?\d{4}/g.test(tel)) {
           alertUser(
             'danger',
             'O número de celular deve ser maior que 11 caracteres. Ex: (99) 99999-9999',

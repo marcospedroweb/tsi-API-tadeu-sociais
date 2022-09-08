@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import alertUser from './alert-user.js';
 
 export default function initGetWithJs() {

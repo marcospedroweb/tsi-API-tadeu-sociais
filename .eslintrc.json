@@ -14,5 +14,13 @@
         "sourceType": "module"
     },
     "rules": {
-    }
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "js": "never"
+            }
+         ]
+    },
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".ts", "tsx"] }],
 }

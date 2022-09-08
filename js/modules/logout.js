@@ -1,22 +1,24 @@
-import initChangeBtnLogin from "./change-btn-login.js";
-import initAlertUser from "./alert-user.js";
+import changeBtnLogin from './change-btn-login.js';
+import alertUser from './alert-user.js';
 
-export default function initLogout() {
-  // Verifica se o usuario está logado, se estiver, desloga o usuario
+export default class Logout {
+  constructor(link) {
+    this.linkLogout = document.querySelector(link);
+    this.userLogged = JSON.parse(sessionStorage.getItem('userLogged'));
+  }
 
-  const linkLogout = document.querySelector('#link-logout');
+  init() {
+    // Verifica se o usuario está logado, se estiver, desloga o usuario
+    if (this.linkLogout) {
+      this.linkLogout.addEventListener('click', (event) => {
+        event.preventDefault();
 
-  if (linkLogout) {
-    linkLogout.addEventListener('click', event => {
-      event.preventDefault();
-      const userLogged = JSON.parse(sessionStorage.getItem('userLogged'));
-
-      if (userLogged) {
-        sessionStorage.removeItem('userLogged');
-        initChangeBtnLogin();
-        initAlertUser('success', 'Saiu da sessão com sucesso');
-      }
-    });
+        if (this.userLogged) {
+          sessionStorage.removeItem('userLogged');
+          changeBtnLogin.init();
+          alertUser('success', 'Saiu da sessão com sucesso');
+        }
+      });
+    }
   }
 }
-
