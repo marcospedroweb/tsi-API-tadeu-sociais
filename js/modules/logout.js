@@ -1,10 +1,11 @@
-import changeBtnLogin from './change-btn-login.js';
-import alertUser from './alert-user.js';
+import changeLayout from './change-layout.js';
+import alertUser from './helpers/alert-user.js';
+import useSessionStorage from './helpers/use-session-storage.js';
 
 export default class Logout {
   constructor(link) {
     this.linkLogout = document.querySelector(link);
-    this.userLogged = JSON.parse(sessionStorage.getItem('userLogged'));
+    this.userLogged = useSessionStorage('userLogged');
   }
 
   init() {
@@ -14,9 +15,9 @@ export default class Logout {
         event.preventDefault();
 
         if (this.userLogged) {
-          sessionStorage.removeItem('userLogged');
-          changeBtnLogin.init();
-          alertUser('success', 'Saiu da sessão com sucesso');
+          useSessionStorage('remove', 'userLogged');
+          changeLayout.init();
+          alertUser.alert('success', 'Saiu da sessão com sucesso');
         }
       });
     }

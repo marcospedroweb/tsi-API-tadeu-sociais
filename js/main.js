@@ -1,12 +1,12 @@
 /* eslint-disable import/extensions */
 import LocalServer from './modules/local-server.js';
-import initGetWithJs from './modules/get-with-js.js';
+import initGetWithJs from './modules/helpers/get-with-js.js';
 import ValideForm from './modules/valide-form.js';
 import CheckAuth from './modules/check-auth.js';
 import TooltipsBootstrap from './modules/tooltips.js';
 import Register from './modules/register.js';
 import Login from './modules/login.js';
-import changeBtnLogin from './modules/change-btn-login.js';
+import changeLayout from './modules/change-layout.js';
 import Logout from './modules/logout.js';
 import FormatCpf from './modules/format-cpf.js';
 import FormatTel from './modules/format-tel.js';
@@ -56,7 +56,7 @@ login.init();
 
 // Sistema de verificação de usuario está logado
 // Muda os botões de entrar/criar conta por nome do usuario
-changeBtnLogin.init();
+changeLayout.init();
 
 // Sistema de logout
 const logout = new Logout('#link-logout');

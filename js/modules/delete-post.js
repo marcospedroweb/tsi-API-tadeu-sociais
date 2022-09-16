@@ -1,4 +1,4 @@
-import initAlertUser from './alert-user.js';
+import initAlertUser from './helpers/alert-user.js';
 import initPostItems from './post-items.js';
 import initServer from './local-server.js';
 

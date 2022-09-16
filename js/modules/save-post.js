@@ -1,8 +1,7 @@
-import initAlertUser from "./alert-user.js";
-import initPostItems from "./post-items.js";
+import initAlertUser from './helpers/alert-user.js';
+import initPostItems from './post-items.js';
 
 export default function initSavePost(postObj) {
-
   if (postObj) {
     const tablePosts = JSON.parse(window.localStorage.getItem('posts'));
     const result = tablePosts.push(postObj);
@@ -11,7 +10,9 @@ export default function initSavePost(postObj) {
       initAlertUser('success', 'Postagem realizado com sucesso!');
       initPostItems();
     } else
-      initAlertUser('danger', 'Houve um erro ao realizar a postagem, tente novamente');
-
+      initAlertUser(
+        'danger',
+        'Houve um erro ao realizar a postagem, tente novamente',
+      );
   }
 }

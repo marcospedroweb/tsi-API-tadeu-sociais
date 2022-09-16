@@ -1,8 +1,8 @@
-import initAlertUser from "./alert-user.js";
-import initSavePost from "./save-post.js";
+import initAlertUser from './helpers/alert-user.js';
+import initSavePost from './save-post.js';
 
 export default function initBtnTadeuzar() {
-  const btnTadeuzar = document.querySelector("#btn-tadeuzar");
+  const btnTadeuzar = document.querySelector('#btn-tadeuzar');
 
   if (btnTadeuzar)
     btnTadeuzar.addEventListener('click', () => {
@@ -17,11 +17,19 @@ export default function initBtnTadeuzar() {
         id: tablePosts.length,
         userId: userLogged.id,
         username: userLogged.name,
-        date: new Date().getTime()
-      }
+        date: new Date().getTime(),
+      };
 
-      if (textareaContent.value.trim().length == 0 && inputMedia.value.length == 0 && inputDraw.value.length == 0 && inputLocation.value.length == 0) {
-        initAlertUser('danger', 'Para realizar o post é necessário adicionar algum conteudo');
+      if (
+        textareaContent.value.trim().length == 0 &&
+        inputMedia.value.length == 0 &&
+        inputDraw.value.length == 0 &&
+        inputLocation.value.length == 0
+      ) {
+        initAlertUser(
+          'danger',
+          'Para realizar o post é necessário adicionar algum conteudo',
+        );
         return;
       }
 
@@ -79,7 +87,6 @@ export default function initBtnTadeuzar() {
           if (!spanMedia.classList.contains('d-none'))
             spanMedia.classList.toggle('d-none');
         }, 250);
-
       }
 
       clearCreatePost();

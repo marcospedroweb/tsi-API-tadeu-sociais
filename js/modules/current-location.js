@@ -1,4 +1,4 @@
-import alertUser from './alert-user.js';
+import alertUser from './helpers/alert-user.js';
 
 export default class CurrentLocation {
   constructor(btn, input, span) {
@@ -7,8 +7,36 @@ export default class CurrentLocation {
     this.spanContent = document.querySelector(span);
   }
 
+  success(position) {
+    const userLatitude = position.coords.latitude;
+    const userLongitude = position.coords.longitude;
+    this.inputLocation.value = `https://embed.waze.com/pt-BR/iframe?zoom=12&lat=${userLatitude}&lon=${userLongitude}&pin=1`;
+
+    if (!this.btnLocation.classList.contains('disabled')) {
+      this.btnLocation.classList.toggle('disabled');
+    }
+    if (this.spanContent.classList.contains('d-none')) {
+      this.spanContent.classList.toggle('d-none');
+    }
+
+    setTimeout(() => {
+      if (!this.spanContent.classList.contains('show')) {
+        this.spanContent.classList.toggle('show');
+      }
+    }, 250);
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  error() {
+    alertUser.alert(
+      'danger',
+      'Houve um erro! Não é possivel adicionar a localização atual, tente novamente.',
+    );
+  }
+
   init() {
-    // Pede a localização do usuario, se aceitar, adiciona as coordenadas ao iframe, se recusar, dá um erro.
+    // Pede a localização do usuario
+    // se aceitar, adiciona as coordenadas ao iframe, se recusar, dá um erro.
 
     if (this.btnLocation) {
       if ('geolocation' in navigator) {
@@ -20,27 +48,8 @@ export default class CurrentLocation {
 
         this.btnLocation.addEventListener('click', () => {
           navigator.geolocation.getCurrentPosition(
-            (position) => {
-              const userLatitude = position.coords.latitude;
-              const userLongitude = position.coords.longitude;
-              this.inputLocation.value = `https://embed.waze.com/pt-BR/iframe?zoom=12&lat=${userLatitude}&lon=${userLongitude}&pin=1`;
-
-              if (!this.btnLocation.classList.contains('disabled'))
-                this.btnLocation.classList.toggle('disabled');
-              if (this.spanContent.classList.contains('d-none'))
-                this.spanContent.classList.toggle('d-none');
-
-              setTimeout(() => {
-                if (!this.spanContent.classList.contains('show'))
-                  this.spanContent.classList.toggle('show');
-              }, 250);
-            },
-            () => {
-              alertUser.init(
-                'danger',
-                'Houve um erro! Não é possivel adicionar a localização atual, tente novamente.',
-              );
-            },
+            this.success,
+            this.error,
             options,
           );
         });

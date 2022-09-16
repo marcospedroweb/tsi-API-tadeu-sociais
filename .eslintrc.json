@@ -3,10 +3,7 @@
         "browser": true,
         "es2021": true
     },
-    "extends": [
-        "airbnb-base",
-        "prettier"
-    ],
+    "extends": "airbnb-base",
     "overrides": [
     ],
     "parserOptions": {
@@ -14,13 +11,10 @@
         "sourceType": "module"
     },
     "rules": {
-        "import/extensions": [
-            "error",
-            "ignorePackages",
-            {
-              "js": "never"
-            }
-         ]
-    },
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".ts", "tsx"] }],
+        "linebreak-style": 0,
+        "no-else-return": 0,
+        "import/extensions": 0,
+        "import/no-unresolved": 0,
+        "operator-linebreak": 0
+    }
 }

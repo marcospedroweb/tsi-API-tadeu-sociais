@@ -4,10 +4,11 @@ export default class TooltipsBootstrap {
   }
 
   init() {
-    if (this.tooltipTriggerList[0])
+    if (this.tooltipTriggerList[0]) {
       [...this.tooltipTriggerList].map(
         // eslint-disable-next-line no-undef
         (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl),
       );
+    }
   }
 }

@@ -11,12 +11,13 @@ export default function initGetWithJs() {
     const temp = parts[i].split('=');
     $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
   }
-  if ($_GET.success)
+  if ($_GET.success) {
     if ($_GET.success === 'account-created') {
-      alertUser.init('success', 'Conta criada com sucesso!');
+      alertUser.alert('success', 'Conta criada com sucesso!');
       window.location.href = window.location.href.replace(
         '?success=account-created',
         '',
       );
     }
+  }
 }
