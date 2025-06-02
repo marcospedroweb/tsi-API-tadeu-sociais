@@ -1,10 +1,11 @@
 # TadeuSociais
-
-Projeto acadêmico desenvolvido para a faculdade: uma rede social fictícia onde é possível fazer login, criar conta, publicar posts e visualizar posts de outros usuários.
+![marcospedroweb github io_tsi-API-tadeu-sociais_](https://github.com/user-attachments/assets/4c618b0b-f4cb-4c01-8830-b9c7f364bbd0)
 
 ## 📘 Descrição
 
-Este projeto foi desenvolvido como parte de um trabalho acadêmico entre **07/05/2022** e **11/06/2022**. O objetivo era aplicar conhecimentos em desenvolvimento web criando uma rede social simples e funcional.
+Projeto acadêmico desenvolvido para a faculdade: uma rede social fictícia onde é possível fazer login, criar conta, publicar posts e visualizar posts de outros usuários.
+Este projeto foi desenvolvido como parte de um trabalho acadêmico entre **07/05/2022** e **11/06/2022**. 
+O objetivo era aplicar conhecimentos em desenvolvimento web criando uma rede social simples e funcional.
 
 ## ✨ Funcionalidades
 
