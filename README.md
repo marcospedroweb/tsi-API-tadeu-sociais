@@ -2,7 +2,7 @@
 
 Projeto acadêmico desenvolvido para a faculdade: uma rede social fictícia onde é possível fazer login, criar conta, publicar posts e visualizar posts de outros usuários.
 
-## 📌 Descrição
+## 📘 Descrição
 
 Este projeto foi desenvolvido como parte de um trabalho acadêmico entre **07/05/2022** e **11/06/2022**. O objetivo era aplicar conhecimentos em desenvolvimento web criando uma rede social simples e funcional.
 
