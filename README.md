@@ -1,11 +1,29 @@
-## TadeuSociais
+# TadeuSociais
 
-[Trabalho para faculdade] Site de rede social ficticia que é possivel fazer login, criar conta, posts e ver posts de outros usuarios.
+Projeto acadêmico desenvolvido para a faculdade: uma rede social fictícia onde é possível fazer login, criar conta, publicar posts e visualizar posts de outros usuários.
 
-# Detalhes
+## 📌 Descrição
 
-<ul>
-  <li>O site foi desenvolvido utilizando: HTML, CSS, Javascript, Boostrap</li>
-  <li>Projeto desenvolvido por Marcos Pedro</li>
-  <li>Tempo de desenvolvimento: 07/05/20202 até 11/06/2022</li>
-</ul>
+Este projeto foi desenvolvido como parte de um trabalho acadêmico entre **07/05/2022** e **11/06/2022**. O objetivo era aplicar conhecimentos em desenvolvimento web criando uma rede social simples e funcional.
+
+## ✨ Funcionalidades
+
+- Login e criação de conta
+- Publicação de posts
+- Visualização de posts de outros usuários
+
+## 🛠️ Tecnologias Utilizadas
+
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
+
+## 🚀 Como Acessar
+
+O projeto está hospedado e pode ser acessado aqui:  
+👉 https://marcospedroweb.github.io/tsi-API-tadeu-sociais/
+
+## 👨‍💻 Desenvolvedor
+
+Projeto desenvolvido por **Marcos Pedro**.
